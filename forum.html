@@ -1,70 +1,96 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
-<title>City Forum</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Community Forum</title>
 
 <style>
+
 body{
-margin:0;
 font-family:Arial;
-background:url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f") center/cover no-repeat;
-color:white;
+margin:0;
+background:#f0f0f0;
 }
 
-.overlay{
-background:rgba(0,0,0,0.7);
-min-height:100vh;
+header{
+background:#333;
+color:white;
+padding:15px;
+text-align:center;
+}
+
+.container{
 padding:20px;
 }
 
 .post{
-background:rgba(255,255,255,0.1);
-padding:15px;
-border-radius:10px;
+background:white;
 margin-bottom:15px;
+padding:15px;
+border-radius:8px;
+transition:0.3s;
 }
 
-textarea{
-width:100%;
-padding:10px;
+.post:hover{
+transform:scale(1.02);
 }
 
 button{
-padding:10px;
-background:#4caf50;
-border:none;
+padding:10px 20px;
+background:#333;
 color:white;
+border:none;
 cursor:pointer;
 }
+
 </style>
 
 </head>
 
 <body>
 
-<div class="overlay">
+<header>
 
-<h1>City Community Forum</h1>
+<h1>Fitness Community Forum</h1>
 
-<h2>Create Post</h2>
+</header>
 
-<textarea placeholder="Share your thoughts..."></textarea>
-<br><br>
-<button>Post</button>
-
-<h2>Recent Posts</h2>
+<div class="container">
 
 <div class="post">
-<h3>Best food places in Pune?</h3>
-<p>Any recommendations for street food?</p>
+
+<h3>Best workout for beginners?</h3>
+
+<p>Looking for simple routine...</p>
+
+<button>Reply</button>
+
 </div>
 
 <div class="post">
-<h3>Startup networking</h3>
-<p>Anyone interested in meeting founders?</p>
+
+<h3>Protein intake question</h3>
+
+<p>How much protein per day?</p>
+
+<button>Reply</button>
+
+</div>
+
+<div class="post">
+
+<h3>Home workout tips</h3>
+
+<p>Share your routines...</p>
+
+<button>Reply</button>
+
 </div>
 
 </div>
 
 </body>
 </html>
+ 

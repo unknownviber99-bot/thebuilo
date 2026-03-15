@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Builo | Website Builder</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f4f4;
+color:#333;
+}
+
+header{
+background:#111;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+section{
+padding:50px;
+max-width:1000px;
+margin:auto;
+}
+
+.hero{
+text-align:center;
+background:white;
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 25px;
+background:#111;
+color:white;
+text-decoration:none;
+border-radius:5px;
+margin-top:10px;
+}
+
+h2{
+border-bottom:2px solid #111;
+padding-bottom:10px;
+}
+
+.work-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.work{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.demo{
+display:none;
+background:white;
+padding:30px;
+border-radius:10px;
+margin-top:20px;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+
+.contact a{
+display:block;
+margin:10px 0;
+color:#111;
+font-size:18px;
+}
+
+</style>
+
+<script>
+
+function showDemo(id){
+
+let demos=document.querySelectorAll(".demo");
+
+demos.forEach(d=>{
+d.style.display="none";
+});
+
+document.getElementById(id).style.display="block";
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>The Builo</h1>
+<p>Simple Websites That Work</p>
+
+<nav>
+
+<a href="#about">About</a>
+<a href="#work">Past Work</a>
+<a href="#faq">Questions</a>
+<a href="#samples">Samples</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>We Build Websites For Businesses</h1>
+
+<p>Clean, simple and affordable websites for individuals and small businesses.</p>
+
+<a class="btn" href="#contact">Get Your Website</a>
+
+</section>
+
+<section id="about">
+
+<h2>About Us</h2>
+
+<p>
+The Builo builds simple websites for businesses and individuals.
+We focus on functional websites that help people show their work,
+attract customers and build online presence.
+</p>
+
+<p>
+Our goal is not flashy design but websites that actually work.
+</p>
+
+</section>
+
+<section id="work">
+
+<h2>Our Past Work</h2>
+
+<div class="work-grid">
+
+<div class="work">
+<h3>Portfolio Website</h3>
+<p>Created for a designer to showcase projects.</p>
+</div>
+
+<div class="work">
+<h3>Local Business Website</h3>
+<p>Simple website for a shop to display services and location.</p>
+</div>
+
+<div class="work">
+<h3>Student Project Site</h3>
+<p>Website built for students to present projects.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="faq">
+
+<h2>Questions Clients Ask</h2>
+
+<div class="work-grid">
+
+<div class="work">
+<h3>How long does it take?</h3>
+<p>Most websites are finished within 2–5 days.</p>
+</div>
+
+<div class="work">
+<h3>Will my site appear on Google?</h3>
+<p>Yes, we prepare websites so they can appear in search results.</p>
+</div>
+
+<div class="work">
+<h3>Can the site be updated later?</h3>
+<p>Yes, websites can be improved anytime.</p>
+</div>
+
+<div class="work">
+<h3>Is it expensive?</h3>
+<p>We aim to provide affordable websites for small businesses.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="samples">
+
+<h2>Example Websites</h2>
+
+<p>Click to see example layouts for different businesses.</p>
+
+<div class="work-grid">
+
+<div class="work">
+<h3>Doctor Website</h3>
+<p>Clinic info, services and appointment contact.</p>
+<button class="btn" onclick="showDemo('doctor')">View Demo</button>
+</div>
+
+<div class="work">
+<h3>General Store</h3>
+<p>Product display and store details.</p>
+<button class="btn" onclick="showDemo('store')">View Demo</button>
+</div>
+
+<div class="work">
+<h3>Community Forum</h3>
+<p>Discussion topics and community posts.</p>
+<button class="btn" onclick="showDemo('forum')">View Demo</button>
+</div>
+
+<div class="work">
+<h3>Hotel Website</h3>
+<p>Room details and booking information.</p>
+<button class="btn" onclick="showDemo('hotel')">View Demo</button>
+</div>
+
+</div>
+
+
+<div id="doctor" class="demo">
+<h2>Doctor Clinic Demo</h2>
+<h3>Dr Sharma Clinic</h3>
+<p>Trusted healthcare for your family.</p>
+
+<ul>
+<li>General Checkup</li>
+<li>Blood Tests</li>
+<li>Child Care</li>
+</ul>
+
+<p>Clinic Hours: 9 AM – 6 PM</p>
+</div>
+
+
+<div id="store" class="demo">
+<h2>General Store Demo</h2>
+<h3>City General Store</h3>
+
+<ul>
+<li>Snacks</li>
+<li>Groceries</li>
+<li>Beverages</li>
+</ul>
+
+<p>Open: 8 AM – 10 PM</p>
+</div>
+
+
+<div id="forum" class="demo">
+<h2>Community Forum Demo</h2>
+
+<ul>
+<li>Technology Talk</li>
+<li>Business Ideas</li>
+<li>Student Discussions</li>
+</ul>
+
+<p>Members can post questions and share ideas.</p>
+</div>
+
+
+<div id="hotel" class="demo">
+<h2>Hotel Website Demo</h2>
+<h3>Sunrise Hotel</h3>
+
+<ul>
+<li>Standard Room</li>
+<li>Deluxe Room</li>
+<li>Family Suite</li>
+</ul>
+
+<p>Book by calling hotel reception.</p>
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<p>If you want a website built for your business, contact me.</p>
+
+<div class="contact">
+
+<a href="tel:+918208519190">📞 Call: 82085 19190</a>
+
+<a href="mailto:pranavdahatonde1@gmail.com">📧 Email: pranavdahatonde1@gmail.com</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 The Builo | Website Building Service</p>
+
+</footer>
+
+</body>
+                      </html>

@@ -1,91 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>FreshMart Store</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Urban Store</title>
 
 <style>
+
 body{
 margin:0;
 font-family:Arial;
-background:url("https://images.unsplash.com/photo-1604719312566-8912e9c8a213") center/cover no-repeat;
-color:white;
 }
 
-.overlay{
-background:rgba(0,0,0,0.6);
-min-height:100vh;
-padding:20px;
+.hero{
+height:80vh;
+background:url("https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1500&q=80") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-align:center;
 }
 
 .products{
-display:flex;
+padding:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:20px;
-flex-wrap:wrap;
 }
 
-.product{
-background:rgba(255,255,255,0.1);
-padding:15px;
+.card{
+background:#f5f5f5;
+padding:10px;
 border-radius:10px;
-width:200px;
+transition:0.3s;
 }
 
-img{
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
 width:100%;
 border-radius:10px;
 }
 
 button{
-padding:10px;
-background:#00bcd4;
-border:none;
+background:black;
 color:white;
+border:none;
+padding:10px 20px;
+margin-top:10px;
 cursor:pointer;
 }
+
 </style>
 
 </head>
 
 <body>
 
-<div class="overlay">
+<div class="hero">
 
-<h1>FreshMart Grocery</h1>
-<p>Your neighborhood supermarket</p>
+<div>
 
-<h2>Products</h2>
+<h1>Urban Store</h1>
+
+<p>Trending Fashion Products</p>
+
+</div>
+
+</div>
 
 <div class="products">
 
-<div class="product">
-<img src="https://source.unsplash.com/200x150/?vegetables">
-<h3>Fresh Vegetables</h3>
-<p>₹120/kg</p>
-<button>Add to Cart</button>
-</div>
+<div class="card">
 
-<div class="product">
-<img src="https://source.unsplash.com/200x150/?fruits">
-<h3>Fresh Fruits</h3>
-<p>₹150/kg</p>
-<button>Add to Cart</button>
-</div>
+<img src="https://images.unsplash.com/photo-1520975922215-230e5f0d05c3">
 
-<div class="product">
-<img src="https://source.unsplash.com/200x150/?grocery">
-<h3>Daily Grocery</h3>
-<p>Best price</p>
-<button>Add to Cart</button>
-</div>
+<h3>Shoes</h3>
+
+<button>Buy</button>
 
 </div>
 
-<h2>Store Info</h2>
-<p>Location: Pune Market Road</p>
-<p>Open: 8 AM – 10 PM</p>
-<p>Phone: +91 9876543210</p>
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f">
+
+<h3>Jacket</h3>
+
+<button>Buy</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b">
+
+<h3>T-shirt</h3>
+
+<button>Buy</button>
+
+</div>
 
 </div>
 
 </body>
-</html>
+</html>  
+
+ 

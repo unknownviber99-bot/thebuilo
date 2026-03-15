@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Performance | Gym Influencer Demo</title>
+    <style>
+        :root {
+            --primary: #ccff00; /* Neon Lime accent for that "expensive" fitness look */
+            --bg: #0a0a0a;
+            --surface: #1a1a1a;
+            --text: #ffffff;
+            --text-dim: #a0a0a0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Premium Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem 5%;
+            align-items: center;
+            position: absolute;
+            width: 90%;
+            z-index: 10;
+        }
+
+        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; }
+        .logo span { color: var(--primary); }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: linear-gradient(to right, rgba(10,10,10,0.9), transparent), 
+                        url('https://images.unsplash.com') center/cover;
+        }
+
+        .hero-content { max-width: 600px; }
+
+        h1 {
+            font-size: 5rem;
+            line-height: 0.9;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .hero-content p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        /* High-Ticket CTA Button */
+        .cta-btn {
+            background-color: var(--primary);
+            color: #000;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(204, 255, 0, 0.3);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .stat-item h3 { font-size: 2rem; margin: 0; color: var(--primary); }
+        .stat-item p { color: var(--text-dim); margin: 5px 0; font-size: 0.8rem; text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            header { padding: 1.5rem 5%; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ELITE<span>PHASE</span></div>
+        <nav>
+            <a href="#">PROGRAMS</a>
+            <a href="#">TRANSFORMATIONS</a>
+            <a href="#">ABOUT</a>
+            <a href="#" style="border: 1px solid var(--primary); padding: 0.5rem 1.2rem; border-radius: 4px;">JOIN NOW</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Forge Your<br>Legacy.</h1>
+            <p>High-performance coaching for those who demand more than average results. Science-backed protocols designed for elite physique transformation.</p>
+            <a href="#" class="cta-btn">Start Your Transformation</a>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>10k+</h3>
+                    <p>Active Members</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Success Stories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

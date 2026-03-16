@@ -1,114 +1,174 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gym Influencer</title>
+
+<!-- Basic Reset -->
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background: #000;
+  color: #fff;
+}
 
-  body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-    scroll-behavior: smooth; /* Smooth scrolling */
-  }
+/* Smooth sections */
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  position: relative;
+}
 
-  /* Hero Section */
-  .hero {
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    cursor: grab;
-  }
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1599058917216-8f3c1f35b3b3?auto=format&fit=crop&w=800&q=60');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* detached feel */
+  z-index: -2;
+  filter: brightness(0.6);
+  transition: transform 0.3s ease-out;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top:0; left:0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  text-align: center;
+  animation: floatText 3s ease-in-out infinite alternate;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.hero-content a {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1rem;
+  color: #fff;
+  background: #00ff7f;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.hero-content a:hover {
+  transform: scale(1.1);
+  background: #00cc66;
+}
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1599058917216-8f3c1f35b3b3'); /* Replace your image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: transform 0.2s ease-out; /* For parallax effect */
-    z-index: -2;
-  }
+/* FLOATING TEXT ANIMATION */
+@keyframes floatText {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
 
-  /* Dark overlay */
-  .hero::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-  }
+/* INFO & FEATURES SECTIONS */
+.info, .features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.info img, .features img {
+  max-width: 90%;
+  border-radius: 12px;
+  margin: 20px 0;
+  transition: transform 0.3s ease;
+}
+.info img:hover, .features img:hover {
+  transform: scale(1.05);
+}
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.section-desc {
+  font-size: 1.2rem;
+  max-width: 700px;
+}
 
-  /* Hero content */
-  .hero-content {
-    position: relative;
-    color: #fff;
-    text-align: center;
-    padding: 0 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: floatText 3s ease-in-out infinite alternate; /* Floating text animation */
-  }
+/* FEATURES GRID */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 40px;
+}
+.feature-card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-10px);
+}
 
-  .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
+/* ANIMATIONS ON SCROLL */
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-
-  .hero-content a {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 1rem;
-    color: #fff;
-    background: #00ff7f;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: transform 0.3s ease, background 0.3s ease;
-  }
-
-  .hero-content a:hover {
-    background: #00cc66;
-    transform: scale(1.1); /* Hover animation */
-  }
-
-  /* Floating animation */
-  @keyframes floatText {
-    0% { transform: translateY(-50%) translateY(0px); }
-    100% { transform: translateY(-50%) translateY(-15px); }
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero-content h1 { font-size: 2rem; }
-    .hero-content p { font-size: 1rem; }
-    .hero-content a { padding: 12px 25px; font-size: 0.9rem; }
-  }
-
-  @media (max-width: 480px) {
-    .hero-content h1 { font-size: 1.5rem; }
-    .hero-content p { font-size: 0.9rem; }
-  }
+/* RESPONSIVE */
+@media (max-width:768px){
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content p { font-size: 1rem; }
+  .section-title { font-size: 2rem; }
+  .section-desc { font-size: 1rem; }
+}
+@media (max-width:480px){
+  .hero-content h1 { font-size: 1.5rem; }
+  .hero-content p { font-size: 0.9rem; }
+  .section-title { font-size: 1.5rem; }
+  .section-desc { font-size: 0.9rem; }
+}
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Transform Your Body in 90 Days</h1>
@@ -117,20 +177,54 @@
   </div>
 </section>
 
-<script>
-  // Parallax effect on mouse move
-  const hero = document.querySelector('.hero');
-  const bg = document.querySelector('.hero::before');
+<!-- INFO SECTION -->
+<section class="info">
+  <h2 class="section-title fade-in">About Me</h2>
+  <p class="section-desc fade-in">I’m a Gym Influencer focused on helping you achieve fitness goals with simple, effective workouts and diet plans that work.</p>
+  <img class="fade-in" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=600&q=60" alt="Gym Trainer">
+</section>
 
-  hero.addEventListener('mousemove', (e) => {
-    const { innerWidth, innerHeight } = window;
-    const x = (e.clientX / innerWidth) * 20 - 10; // range: -10 to 10
-    const y = (e.clientY / innerHeight) * 20 - 10;
-    hero.style.setProperty('--mx', x + 'px');
-    hero.style.setProperty('--my', y + 'px');
-    hero.querySelector('::before').style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+<!-- FEATURES SECTION -->
+<section class="features">
+  <h2 class="section-title fade-in">Features</h2>
+  <p class="section-desc fade-in">Everything you need to succeed in your fitness journey.</p>
+  <div class="features-grid">
+    <div class="feature-card fade-in">
+      <h3>Personalized Workouts</h3>
+      <p>Tailored plans that match your body type and goals.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <h3>Nutrition Guidance</h3>
+      <p>Eat smart, not less. Meal plans that fuel your results.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <h3>Progress Tracking</h3>
+      <p>Monitor improvements and celebrate milestones.</p>
+    </div>
+    <div class="feature-card fade-in">
+      <h3>Community Support</h3>
+      <p>Join a motivated fitness community to stay consistent.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+// Scroll animations
+const faders = document.querySelectorAll('.fade-in');
+const options = { threshold: 0.2 };
+
+const appearOnScroll = new IntersectionObserver((entries, observer)=>{
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
   });
+}, options);
+
+faders.forEach(fader => appearOnScroll.observe(fader));
 </script>
 
 </body>
-</html> 
+</html>    
+   

@@ -1,152 +1,180 @@
-    <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="High-energy Gym Influencer website | Online Fitness Coach">
-  <title>Fitness by [Your Name]</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #121212;
-      color: #fff;
-      scroll-behavior: smooth;
-    }
-    a { text-decoration: none; color: inherit; }
-    .btn {
-      background-color: #39FF14;
-      color: #000;
-      padding: 15px 30px;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: 0.3s;
-      display: inline-block;
-    }
-    .btn:hover {
-      box-shadow: 0 0 15px #39FF14;
-      transform: translateY(-2px);
-    }
-    section { padding: 80px 20px; }
-    h2 { font-size: 2rem; margin-bottom: 20px; text-align: center; }
-    p { font-size: 1rem; line-height: 1.6; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Premium online fitness coaching. 1-on-1, group, and downloadable programs to transform your body.">
+<title>Elite Gym Influencer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ===== GLOBAL ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
+body{background:#0a0a0a;color:#fff;scroll-behavior:smooth;}
+a{color:#0ff;text-decoration:none;}
+button{cursor:pointer;transition:.3s;}
+h1,h2,h3{font-weight:700;}
+section{padding:60px 20px;}
+.fade-in{opacity:0; transform: translateY(20px); transition: all 0.8s ease-in-out;}
+.fade-in.visible{opacity:1; transform: translateY(0);}
 
-    /* Hero */
-    #hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: url('hero-bg.jpg') center/cover no-repeat;
-      position: relative;
-    }
-    #hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0,0,0,0.6);
-    }
-    #hero-content { position: relative; z-index: 2; }
-    #hero h1 { font-size: 3rem; margin-bottom: 20px; }
-    #hero p { font-size: 1.2rem; margin-bottom: 30px; }
+/* ===== HERO ===== */
+.hero{
+  height:100vh;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; position:relative; overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: url('https://via.placeholder.com/800x600.webp') center/cover no-repeat;
+  filter: brightness(0.4);
+  z-index:-1;
+  animation: zoom 20s infinite alternate;
+}
+@keyframes zoom{0%{transform:scale(1);}100%{transform:scale(1.1);}}
+.hero h1{font-size:3rem;color:#0ff;text-shadow:2px 2px #000;margin-bottom:20px;}
+.hero p{font-size:1.2rem;margin-bottom:30px;color:#ccc;}
+.hero button{
+  background: linear-gradient(90deg,#0ff,#0cc); color:#000;
+  padding:15px 35px; border:none; font-weight:700; border-radius:10px;
+}
+.hero button:hover{transform:scale(1.05);}
 
-    /* Services */
-    .services { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-    .service-card {
-      background-color: #1E1E1E;
-      padding: 20px;
-      border-radius: 12px;
-      flex: 1 1 250px;
-      max-width: 300px;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .service-card:hover { box-shadow: 0 0 15px #00FFFF; }
+/* ===== ABOUT ===== */
+.about{max-width:900px;margin:auto;text-align:center;}
+.about h2{color:#0ff;margin-bottom:20px;font-size:2.5rem;text-shadow:0 0 10px #0ff;}
+.about p{color:#ccc;margin-bottom:15px;font-size:1.1rem;line-height:1.8;}
 
-    /* Gallery */
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 15px; }
-    .gallery img { width: 100%; border-radius: 12px; }
+/* ===== SERVICES ===== */
+.services{background:#111;text-align:center;}
+.services h2{color:#0ff;margin-bottom:40px;font-size:2.5rem;text-shadow:0 0 10px #0ff;}
+.service-cards{display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
+.service-card{
+  background: rgba(30,30,30,0.8); backdrop-filter: blur(8px);
+  padding:30px;border-radius:20px;width:260px;transition:all .5s;
+}
+.service-card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 10px 30px rgba(0,255,255,0.4);}
+.service-card h3{color:#0ff;margin-bottom:10px;}
+.service-card p{color:#ccc;}
 
-    /* Testimonials */
-    .testimonial { background-color: #1E1E1E; padding: 20px; margin: 10px; border-radius: 12px; }
+/* ===== TESTIMONIALS ===== */
+.social-proof{text-align:center;}
+.social-proof h2{color:#0ff;margin-bottom:40px;font-size:2.5rem;text-shadow:0 0 10px #0ff;}
+.testimonials{display:flex; overflow-x:auto; gap:20px; padding-bottom:10px;}
+.testimonial{
+  min-width:260px; background: rgba(30,30,30,0.8); backdrop-filter: blur(8px);
+  padding:20px;border-radius:20px;color:#ccc;transition:.5s;
+}
+.testimonial img{width:100%;border-radius:15px;margin-bottom:10px;}
+.testimonial:hover{transform:scale(1.05);box-shadow:0 10px 25px rgba(0,255,255,0.3);}
 
-    /* Footer */
-    footer {
-      background-color: #0D0D0D;
-      text-align: center;
-      padding: 40px 20px;
-    }
+/* ===== SHOP ===== */
+.shop{text-align:center;background:#111;}
+.shop h2{color:#0ff;margin-bottom:40px;font-size:2.5rem;text-shadow:0 0 10px #0ff;}
+.products{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+.product{
+  background: rgba(30,30,30,0.8); backdrop-filter: blur(8px);
+  padding:20px;border-radius:20px;width:200px;transition:.5s;
+}
+.product img{width:100%;border-radius:15px;margin-bottom:10px;}
+.product h3{color:#0ff;margin-bottom:5px;}
+.product p{color:#ccc;margin-bottom:10px;}
+.product button{
+  background: linear-gradient(90deg,#0ff,#0cc); color:#000; border:none; padding:12px; border-radius:10px; width:100%; font-weight:700;
+}
+.product button:hover{transform:scale(1.05);}
 
-    @media(max-width:768px){
-      #hero h1 { font-size: 2.2rem; }
-      #hero p { font-size: 1rem; }
-      .services { flex-direction: column; align-items: center; }
-    }
-  </style>
+/* ===== LEAD CAPTURE ===== */
+.lead-capture{text-align:center;}
+.lead-capture h2{color:#0ff;margin-bottom:20px;font-size:2rem;}
+.lead-capture form{display:flex;flex-direction:column;gap:15px;max-width:400px;margin:auto;}
+.lead-capture input, .lead-capture button{padding:15px;border-radius:10px;border:none;}
+.lead-capture input{width:100%;}
+.lead-capture button{background: linear-gradient(90deg,#0ff,#0cc); color:#000; font-weight:700;}
+.lead-capture button:hover{transform:scale(1.05);}
+
+/* ===== FOOTER ===== */
+footer{background:#111;padding:40px 20px;text-align:center;color:#ccc;}
+footer a{margin:0 10px;font-size:1.5rem;transition:.3s;}
+footer a:hover{color:#0ff;transform:scale(1.2);}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .service-cards, .testimonials, .products{flex-direction:column;align-items:center;}
+  .hero h1{font-size:2rem;}
+}
+</style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <div id="hero-content">
-      <h1>Transform Your Body in 90 Days</h1>
-      <p>Personalized coaching to reach your peak fitness.</p>
-      <a href="#services" class="btn">Start Your Journey</a>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero fade-in">
+<h1>Transform Your Body in 90 Days</h1>
+<p>Professional Online Coaching to achieve your fitness goals.</p>
+<button>Start Your Journey</button>
+</section>
 
-  <!-- About Me -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I’m [Your Name], certified fitness coach. My mission is to help you achieve a transformation like mine, combining science-backed workouts and nutrition guidance.</p>
-  </section>
+<!-- ABOUT -->
+<section class="about fade-in">
+<h2>About Me</h2>
+<p>Certified Personal Trainer with 5+ years of experience helping clients transform their lives.</p>
+<p>My fitness philosophy: Sustainable, science-backed methods for real results.</p>
+<p>My own journey: From average fitness to peak performance—I know what works.</p>
+</section>
 
-  <!-- Services -->
-  <section id="services">
-    <h2>Services & Online Coaching</h2>
-    <div class="services">
-      <div class="service-card">
-        <h3>1-on-1 Coaching</h3>
-        <p>Personalized training programs with weekly check-ins.</p>
-        <p><strong>$199/month</strong></p>
-      </div>
-      <div class="service-card">
-        <h3>Group Classes</h3>
-        <p>Interactive online classes for motivation & results.</p>
-        <p><strong>$99/month</strong></p>
-      </div>
-      <div class="service-card">
-        <h3>Downloadable Programs</h3>
-        <p>Workout guides and nutrition plans to follow at your pace.</p>
-        <p><strong>$49 one-time</strong></p>
-      </div>
-    </div>
-  </section>
+<!-- SERVICES -->
+<section class="services fade-in">
+<h2>Services & Coaching</h2>
+<div class="service-cards">
+<div class="service-card"><h3>1-on-1 Coaching</h3><p>Personalized programs to reach your goals faster.</p><p>₹5,000/month</p></div>
+<div class="service-card"><h3>Group Classes</h3><p>Motivating classes to keep you accountable and consistent.</p><p>₹1,500/month</p></div>
+<div class="service-card"><h3>Downloadable Programs</h3><p>Structured workout plans you can follow at home.</p><p>₹999</p></div>
+</div>
+</section>
 
-  <!-- Social Proof -->
-  <section id="social-proof">
-    <h2>Client Transformations</h2>
-    <div class="gallery">
-      <img src="before1.jpg" alt="Before client 1">
-      <img src="after1.jpg" alt="After client 1">
-      <img src="before2.jpg" alt="Before client 2">
-      <img src="after2.jpg" alt="After client 2">
-    </div>
-    <div class="testimonials">
-      <div class="testimonial">"Amazing results in just 3 months!" – Client A</div>
-      <div class="testimonial">"Highly recommend [Your Name]!" – Client B</div>
-    </div>
-  </section>
+<!-- TESTIMONIALS -->
+<section class="social-proof fade-in">
+<h2>Results & Testimonials</h2>
+<div class="testimonials">
+<div class="testimonial"><img src="https://via.placeholder.com/400x300.webp" loading="lazy" alt="Before and After"><p>"Lost 15kg in 3 months!"</p></div>
+<div class="testimonial"><img src="https://via.placeholder.com/400x300.webp" loading="lazy" alt="Before and After"><p>"The group classes kept me motivated every day."</p></div>
+</div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>Contact: info@fitnessby[YourName].com | Follow me on Instagram</p>
-    <p>&copy; 2026 Fitness by [Your Name]</p>
-  </footer>
+<!-- SHOP -->
+<section class="shop fade-in">
+<h2>Shop Supplements & Gear</h2>
+<div class="products">
+<div class="product"><img src="https://via.placeholder.com/400x400.webp" loading="lazy" alt="Protein Powder"><h3>Protein Powder</h3><p>High-quality whey for muscle growth.</p><button>Buy Now</button></div>
+<div class="product"><img src="https://via.placeholder.com/400x400.webp" loading="lazy" alt="Resistance Bands"><h3>Resistance Bands</h3><p>Perfect for home workouts.</p><button>Buy Now</button></div>
+</div>
+</section>
+
+<!-- LEAD CAPTURE -->
+<section class="lead-capture fade-in">
+<h2>Start Your Free 7-Day Trial</h2>
+<form><input type="text" placeholder="Full Name" required><input type="email" placeholder="Email Address" required><button>Get Started</button></form>
+</section>
+
+<!-- FOOTER -->
+<footer class="fade-in">
+<p>Follow me on social media:</p>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<p>Subscribe to my newsletter for tips & updates</p>
+<input type="email" placeholder="Your Email" style="padding:10px; border-radius:5px; border:none; width:200px;">
+</footer>
+
+<script>
+const faders = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('visible');}
+  });
+},{threshold:0.2});
+faders.forEach(fader=>observer.observe(fader));
+</script>
 
 </body>
-  </html>
+</html>     

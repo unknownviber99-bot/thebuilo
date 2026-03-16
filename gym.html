@@ -1,9 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gym Influencer Premium</title>
+<title>Gym Influencer Premium Local</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -15,9 +15,9 @@ img{max-width:100%;border-radius:12px;display:block;}
 .hero{height:100vh;width:100%;position:relative;overflow:hidden;text-align:center;}
 .hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-3;filter:brightness(0.6);}
 .hero-bg-layer{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;z-index:-2;transition:transform 0.2s linear;}
-.hero-bg-layer.layer1{background-image:url('https://i.imgur.com/7YV8p5t.webp');}
-.hero-bg-layer.layer2{background-image:url('https://i.imgur.com/kxwGJpJ.webp');opacity:0.5;}
-.hero-overlay{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:-1;}
+.hero-bg-layer.layer1{background-image:url('images/layer1.webp');}
+.hero-bg-layer.layer2{background-image:url('images/layer2.webp');opacity:0.5;}
+.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:-1;}
 .hero-content{position:relative;z-index:1;max-width:800px;text-align:center;animation:floatText 3s ease-in-out infinite alternate;}
 .hero-content h1{font-size:3rem;margin-bottom:20px;}
 .hero-content p{font-size:1.2rem;margin-bottom:30px;}
@@ -58,10 +58,11 @@ img{max-width:100%;border-radius:12px;display:block;}
 
 <!-- HERO -->
 <section class="hero">
-  <!-- Lightweight looping video background -->
-  <video autoplay muted loop playsinline poster="https://i.imgur.com/7YV8p5t.webp">
-    <source src="https://i.imgur.com/2z2MvUL.mp4" type="video/mp4">
+  <!-- Optional: local video for fast devices -->
+  <video autoplay muted loop playsinline poster="images/hero.jpg">
+    <source src="images/hero.mp4" type="video/mp4">
   </video>
+
   <!-- Multi-layer pseudo-parallax -->
   <div class="hero-bg-layer layer1"></div>
   <div class="hero-bg-layer layer2"></div>
@@ -69,7 +70,7 @@ img{max-width:100%;border-radius:12px;display:block;}
 
   <div class="hero-content">
     <h1>Transform Your Body in 90 Days</h1>
-    <p>Join our fitness journey and achieve your ultimate goal. Personalized workouts & nutrition plans.</p>
+    <p>Join our fitness journey with personalized workouts & diet plans.</p>
     <a href="#signup">Start Your Journey</a>
   </div>
 </section>
@@ -77,8 +78,8 @@ img{max-width:100%;border-radius:12px;display:block;}
 <!-- INFO SECTION -->
 <section class="info">
   <h2 class="section-title fade-in">About Me</h2>
-  <p class="section-desc fade-in">I’m a Gym Influencer focused on helping you achieve fitness goals with simple, effective workouts and diet plans that work.</p>
-  <img class="fade-in" src="https://i.imgur.com/kxwGJpJ.webp" alt="Gym Trainer" loading="lazy">
+  <p class="section-desc fade-in">I’m a Gym Influencer helping you achieve fitness goals with simple, effective workouts and diet plans.</p>
+  <img class="fade-in" src="images/about.jpg" alt="Gym Trainer" loading="lazy">
 </section>
 
 <!-- FEATURES SECTION -->
@@ -86,10 +87,10 @@ img{max-width:100%;border-radius:12px;display:block;}
   <h2 class="section-title fade-in">Features</h2>
   <p class="section-desc fade-in">Everything you need to succeed in your fitness journey.</p>
   <div class="features-grid">
-    <div class="feature-card"> <h3>Personalized Workouts</h3> <p>Tailored plans that match your body type and goals.</p> </div>
-    <div class="feature-card"> <h3>Nutrition Guidance</h3> <p>Eat smart, not less. Meal plans that fuel your results.</p> </div>
-    <div class="feature-card"> <h3>Progress Tracking</h3> <p>Monitor improvements and celebrate milestones.</p> </div>
-    <div class="feature-card"> <h3>Community Support</h3> <p>Join a motivated fitness community to stay consistent.</p> </div>
+    <div class="feature-card"><h3>Personalized Workouts</h3><p>Tailored plans that match your body type and goals.</p></div>
+    <div class="feature-card"><h3>Nutrition Guidance</h3><p>Eat smart, not less. Meal plans that fuel your results.</p></div>
+    <div class="feature-card"><h3>Progress Tracking</h3><p>Monitor improvements and celebrate milestones.</p></div>
+    <div class="feature-card"><h3>Community Support</h3><p>Join a motivated fitness community to stay consistent.</p></div>
   </div>
 </section>
 
@@ -123,4 +124,4 @@ window.addEventListener('scroll',()=>{
 </script>
 
 </body>
-</html>
+ </html> 

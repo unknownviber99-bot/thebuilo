@@ -1,165 +1,163 @@
- <!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PowerFit Gym</title>  <!-- Preload hero image for faster first paint -->  <link rel="preload" as="image" href="images/gym-hero.jpg">  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { background: #0f0f0f; color: white; scroll-behavior: smooth; }
+  <title>PowerFit Gym</title>  <!-- Fast CDN Images (no local issues) -->  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+
+    body {
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* FLOATING BACKGROUND EFFECT */
+    .bg {
+      position: fixed;
+      width:100%; height:100%;
+      z-index:-1;
+      overflow:hidden;
+    }
+
+    .bg span {
+      position:absolute;
+      width:20px; height:20px;
+      background:#ff3c00;
+      opacity:0.2;
+      border-radius:50%;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh) scale(0); }
+      to { transform: translateY(-10vh) scale(1); }
+    }
 
     header {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/gym-hero.jpg') center/cover no-repeat;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+        url('https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=1600&q=60') center/cover;
     }
 
-    header h1 { font-size: 3rem; color: #ff3c00; }
-    header p { margin-top: 10px; }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #ff3c00;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-    }
+    h1 { font-size:3rem; color:#ff3c00; }
 
     section {
-      padding: 80px 10%;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease;
+      padding:80px 10%;
+      opacity:0;
+      transform:translateY(50px);
+      transition:0.8s;
     }
 
-    section.show { opacity: 1; transform: translateY(0); }
+    section.show { opacity:1; transform:translateY(0); }
 
-    .features, .pricing {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
     }
 
     .card {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255,60,0,0.3);
-      transition: transform 0.3s;
+      background:rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      padding:20px;
+      border-radius:20px;
+      box-shadow:0 0 20px rgba(255,60,0,0.3);
+      transition:0.3s;
     }
 
-    .card:hover { transform: scale(1.05); }
+    .card:hover { transform:translateY(-10px) scale(1.03); }
 
-    /* FIXED IMAGE HANDLING */
-    .img-wrap {
-      width: 100%;
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      border-radius: 10px;
-      background: #222;
+    .card img {
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:15px;
     }
 
-    .img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .btn {
+      display:inline-block;
+      margin-top:15px;
+      padding:10px 20px;
+      background:#ff3c00;
+      border-radius:25px;
+      color:white;
+      text-decoration:none;
     }
 
-    footer { background: #000; padding: 40px; text-align: center; }
+    footer {
+      text-align:center;
+      padding:40px;
+      background:#000;
+    }
   </style></head>
-<body><header>
+<body><!-- Floating particles --><div class="bg">
+  <span style="left:10%; animation-duration:8s"></span>
+  <span style="left:30%; animation-duration:12s"></span>
+  <span style="left:50%; animation-duration:10s"></span>
+  <span style="left:70%; animation-duration:14s"></span>
+  <span style="left:90%; animation-duration:9s"></span>
+</div><header>
   <div>
     <h1>PowerFit Gym</h1>
-    <p>Transform Your Body. Transform Your Life.</p>
+    <p>Build Strength. Gain Confidence.</p>
     <a href="#features" class="btn">Explore</a>
   </div>
 </header><section id="features">
-  <h2>Our Features</h2>
-  <div class="features"><div class="card">
-  <div class="img-wrap">
-    <img src="images/workout1.jpg" loading="lazy" width="400" height="300" onerror="this.src='images/fallback.jpg'">
-  </div>
+  <h2>Features</h2>
+  <div class="grid"><div class="card">
+  <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=60" loading="lazy">
   <h3>Modern Equipment</h3>
-  <p>Top-tier machines for effective workouts.</p>
+  <p>High quality machines for best workouts.</p>
 </div>
 
 <div class="card">
-  <div class="img-wrap">
-    <img src="images/trainer.jpg" loading="lazy" width="400" height="300" onerror="this.src='images/fallback.jpg'">
-  </div>
+  <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=60" loading="lazy">
   <h3>Expert Trainers</h3>
-  <p>Certified trainers to guide your journey.</p>
+  <p>Professional guidance for faster results.</p>
 </div>
 
 <div class="card">
-  <div class="img-wrap">
-    <img src="images/group.jpg" loading="lazy" width="400" height="300" onerror="this.src='images/fallback.jpg'">
-  </div>
+  <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?auto=format&fit=crop&w=800&q=60" loading="lazy">
   <h3>Group Classes</h3>
-  <p>Zumba, Yoga, HIIT sessions.</p>
+  <p>Fun & energetic training sessions.</p>
 </div>
 
   </div>
 </section><section>
   <h2>Membership Plans</h2>
-  <div class="pricing"><div class="card">
-  <h3>Basic</h3>
-  <p>₹999/month</p>
-  <p>Access to gym equipment</p>
-</div>
-
-<div class="card">
-  <h3>Standard</h3>
-  <p>₹1999/month</p>
-  <p>Gym + Group Classes</p>
-</div>
-
-<div class="card">
-  <h3>Premium</h3>
-  <p>₹2999/month</p>
-  <p>All access + Personal Trainer</p>
-</div>
-
+  <div class="grid">
+    <div class="card"><h3>Basic</h3><p>₹999/month</p></div>
+    <div class="card"><h3>Standard</h3><p>₹1999/month</p></div>
+    <div class="card"><h3>Premium</h3><p>₹2999/month</p></div>
   </div>
 </section><section>
-  <h2>Login / Signup</h2>
+  <h2>Login</h2>
   <div class="card">
-    <input type="text" placeholder="Username" id="username"><br><br>
-    <input type="password" placeholder="Password" id="password"><br><br>
+    <input type="text" placeholder="Username" id="u"><br><br>
+    <input type="password" placeholder="Password" id="p"><br><br>
     <button class="btn" onclick="login()">Login</button>
     <p id="msg"></p>
   </div>
 </section><section>
-  <h2>Quick Contact</h2>
-  <a class="btn" href="https://wa.me/919876543210" target="_blank">Chat on WhatsApp</a>
+  <h2>Contact</h2>
+  <a class="btn" href="https://wa.me/919876543210" target="_blank">WhatsApp</a>
 </section><footer>
-  <h2>Contact Us</h2>
   <p>📞 +91 9876543210</p>
   <p>📧 powerfitgym@email.com</p>
 </footer><script>
-  const sections = document.querySelectorAll("section");
+  const sections=document.querySelectorAll('section');
+  const obs=new IntersectionObserver(e=>{
+    e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add('show'); });
+  },{threshold:0.2});
+  sections.forEach(s=>obs.observe(s));
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("show");
-    });
-  }, { threshold: 0.2 });
-
-  sections.forEach(section => observer.observe(section));
-
-  function login() {
-    const user = document.getElementById("username").value;
-    const pass = document.getElementById("password").value;
-
-    if(user === "admin" && pass === "1234") {
-      document.getElementById("msg").innerText = "Login Successful";
-    } else {
-      document.getElementById("msg").innerText = "Invalid Credentials";
-    }
+  function login(){
+    if(u.value==='admin' && p.value==='1234') msg.innerText='Success';
+    else msg.innerText='Wrong credentials';
   }
 </script></body>
- </html>
+     </html>

@@ -1,142 +1,188 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --surface: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.06);
-            --accent: #ff4d00; /* Professional Safety Orange */
-            --text-main: #ffffff;
-            --text-dim: #888888;
-        }
+ <!-- =========================
+MAIN CORE FITNESS CAMP WEBSITE
+Multi-page (index, programs, gallery)
+High-end minimalist glass UI
+========================= --><!-- =========================
+GLOBAL STYLES (shared across pages)
+Save as style.css
+========================= --><style>
+:root {
+  --bg: #1a1c1f;
+  --card: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.08);
+  --text: #eaeaea;
+  --muted: #a0a0a0;
+  --accent: #2f6bff; /* Electric Cobalt */
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            /* DETACHED EFFECT: Background is fixed, cards scroll over it */
-            background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0a0a0a 100%);
-            line-height: 1.5;
-        }
+body {
+  background: var(--bg);
+  color: var(--text);
+}
 
-        /* Minimal Fixed Nav */
-        nav {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 30px 5%;
-            display: flex; justify-content: space-between;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
+/* Floating Navbar */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 10px 30px;
+  display: flex;
+  gap: 30px;
+  z-index: 1000;
+}
 
-        nav a { 
-            color: var(--text-dim); text-decoration: none; 
-            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-        }
+.navbar a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
 
-        /* Professional Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            text-align: center;
-        }
+.navbar a:hover {
+  color: var(--accent);
+}
 
-        .hero h1 {
-            font-size: clamp(4rem, 12vw, 10rem);
-            font-weight: 200; /* Thin weight looks more premium */
-            line-height: 0.9;
-            letter-spacing: -5px;
-            margin-bottom: 20px;
-        }
+/* Glass Card */
+.card {
+  background: var(--card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 40px auto;
+  width: 85%;
+  max-width: 1100px;
+}
 
-        /* The "Detached" Card System */
-        .content-section {
-            padding: 100px 5%;
-        }
+h1 {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
 
-        .glass-panel {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(40px);
-            border-radius: 2px; /* Sharp corners look more professional than rounds */
-            padding: 80px;
-            max-width: 1200px;
-            margin: 0 auto 100px;
-        }
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
 
-        .label {
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 10px;
-            margin-bottom: 20px;
-            display: block;
-        }
+p {
+  color: var(--muted);
+  line-height: 1.6;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-        }
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
 
-        .grid-item h3 { font-size: 24px; margin-bottom: 15px; font-weight: 400; }
-        .grid-item p { color: var(--text-dim); font-size: 14px; font-weight: 300; }
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
 
-        /* Subtle CTA */
-        .cta-btn {
-            border: 1px solid var(--text-main);
-            padding: 15px 40px;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
+/* Masonry */
+.masonry {
+  column-count: 3;
+  column-gap: 20px;
+}
 
-        .cta-btn:hover { background: var(--text-main); color: var(--bg); }
+.masonry img {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
 
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div>MAIN CORE</div>
-        <div style="display:flex; gap:40px;">
-            <a href="#">Training</a>
-            <a href="#">Philosophy</a>
-            <a href="#">Contact</a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <span class="label">Est. 2024</span>
-        <h1>MAIN<br>CORE</h1>
-        <p style="letter-spacing: 10px; text-transform: uppercase; color: var(--text-dim); font-size: 12px; margin-top: 20px;">Precision Fitness Architecture</p>
-    </section>
-
-    <div class="content-section">
-        <div class="glass-panel">
-            <span class="label">The Philosophy</span>
-            <div class="grid">
-                <div class="grid-item">
-                    <h3>01. Intent</h3>
-                    <p>We do not move for the sake of moving. Every rep is a calculated effort toward structural balance.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>02. Kinetic</h3>
-                    <p>Harnessing the laws of physics to optimize human output through functional mechanics.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>03. Endurance</h3>
-                    <p>Building a cardiovascular engine that performs under extreme atmospheric pressure.</p>
-                </div>
-            </div>
-        </div>
+@media(max-width: 768px) {
+  h1 { font-size: 40px; }
+  .masonry { column-count: 1; }
+}
+</style><!-- =========================
+INDEX.HTML (Homepage)
+========================= --><div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="programs.html">Programs</a>
+  <a href="gallery.html">Philosophy</a>
+</div><section class="card" style="margin-top:120px; text-align:center;">
+  <h1>Functional Strength</h1>
+  <p>Built through discipline, refined through movement.</p>
+  <a href="programs.html" class="btn">Explore Programs</a>
+</section><section class="card">
+  <h2>About Us</h2>
+  <p>Main Core Fitness Camp focuses on real-world strength, endurance, and mobility. No gimmicks — just structured, intelligent training.</p>
+</section><section class="card">
+  <h2>Core Pillars</h2>
+  <div class="grid">
+    <div>
+      <h3>Strength</h3>
+      <p>Progressive overload with precision.</p>
     </div>
-
-</body>
-</html>
+    <div>
+      <h3>Mobility</h3>
+      <p>Move freely, perform better.</p>
+    </div>
+    <div>
+      <h3>Endurance</h3>
+      <p>Sustainable conditioning.</p>
+    </div>
+  </div>
+</section><!-- =========================
+PROGRAMS.HTML
+========================= --><div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="programs.html">Programs</a>
+  <a href="gallery.html">Philosophy</a>
+</div><section class="card" style="margin-top:120px;">
+  <h1>Programs</h1>
+</section><section class="card">
+  <div class="grid">
+    <div>
+      <h3>Beginner Camp</h3>
+      <p>Mon - Fri | Low Intensity</p>
+    </div>
+    <div>
+      <h3>Strength Camp</h3>
+      <p>Mon - Sat | Medium Intensity</p>
+    </div>
+    <div>
+      <h3>Elite Conditioning</h3>
+      <p>Daily | High Intensity</p>
+    </div>
+  </div>
+</section><!-- =========================
+GALLERY.HTML
+========================= --><div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="programs.html">Programs</a>
+  <a href="gallery.html">Philosophy</a>
+</div><section class="card" style="margin-top:120px;">
+  <h1>Movement & Philosophy</h1>
+  <p>Strength is a visual language.</p>
+</section><section class="card">
+  <div class="masonry">
+    <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001ab" />
+    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438" />
+    <img src="https://images.unsplash.com/photo-1546484959-fc4d2e0f0d1b" />
+    <img src="https://images.unsplash.com/photo-1526401485004-2aa7f3c4b11b" />
+  </div>
+</section>
